@@ -12,7 +12,7 @@ app.set('view engine', 'html');
 app.engine('html', require('ejs').__express);
 
 // Connect Mongoose
-//require('./lib/connectMongoose');
+require('./lib/connectMongoose');
 
 app.locals.title = 'nodepop';
 
