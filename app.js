@@ -11,7 +11,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'html');
 app.engine('html', require('ejs').__express);
 
-// Connect Mongoose
+// Connect Mongoose models
 require('./lib/connectMongoose');
 
 app.locals.title = 'nodepop';
@@ -27,8 +27,6 @@ app.use(express.static(path.join(__dirname, 'public')));
  */
 
 app.use('/apiv1/ads', require('./routes/apiv1/ads'));
-
-
 
 /**
  * Application web routes
