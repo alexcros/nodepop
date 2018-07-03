@@ -10,9 +10,13 @@ const Ad = require('../../models/Ad');
 
 router.get('/', async (req, res, next) => {
     try {
-
+        // filters
         const name = req.query.name;
         const sale = req.query.sale;
+
+        // pagination
+        const skip = parseInt(req.query.skip);
+        const limit = parseInt(req.query.limit);
 
         const filter = {};
 
@@ -24,7 +28,7 @@ router.get('/', async (req, res, next) => {
             filter.sale = sale;
         }
 
-        const ads = await Ad.list(filter);
+        const ads = await Ad.list(filter, skip, limit);
         res.json({ success: true, result: ads });
     } catch (err) {
         next(err);
