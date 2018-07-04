@@ -38,12 +38,9 @@ router.post('/login', async (req, res, next) => {
                 next(err);
                 return;
             }
-
+            // answer client with JWT
             res.json({ success: true, token })
         });
-
-        // answer to client with JWT
-
     } catch (error) {
         next(err);
     }
