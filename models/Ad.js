@@ -11,13 +11,19 @@ const adSchema = mongoose.Schema({
 });
 
 // model static method
-adSchema.statics.list = function(filter, skip, limit) {
+adSchema.statics.list = function(filter, skip, limit, fields, sort) {
 
     //TODO: case insensitive
-    // create query with desired filter
+    // create query with desired filters
     const query = Ad.find(filter);
+    query.select(fields);
+
+    // add pagination
     query.skip(skip);
-    query.limit(limit);
+    query.limit(limit);    
+
+    // sort by field
+    query.sort(sort);
 
     // execute query and return promise
     return query.exec();

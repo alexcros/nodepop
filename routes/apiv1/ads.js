@@ -13,10 +13,14 @@ router.get('/', async (req, res, next) => {
         // filters
         const name = req.query.name;
         const sale = req.query.sale;
+        const fields = req.query.fields;
 
         // pagination
         const skip = parseInt(req.query.skip);
         const limit = parseInt(req.query.limit);
+
+        // sort
+        const sort = req.query.sort;
 
         const filter = {};
 
@@ -28,7 +32,7 @@ router.get('/', async (req, res, next) => {
             filter.sale = sale;
         }
 
-        const ads = await Ad.list(filter, skip, limit);
+        const ads = await Ad.list(filter, skip, limit, fields, sort);
         res.json({ success: true, result: ads });
     } catch (err) {
         next(err);
