@@ -1,1 +1,65 @@
-# nodepop
+## nodepop
+
+## run mongoDB
+
+This application uses mongoDB
+
+To run:
+
+```shell
+./bin/mongod --dbpath ./data/db
+```
+
+## run mongoose
+
+
+
+## cross-env
+
+Installed en dev environment
+
+## URL
+
+localhost:3000
+
+## Development
+
+To start the app in dev mode use:
+
+```shell
+
+    npm run dev
+
+```
+## API Documentation
+
+http://localhost:3000/apiv1/ads
+
+Filter by name:
+
+?name=Bike
+
+Filter by sale:
+
+?sale=false
+
+Filter by fields:
+
+?fields=price or ?fields=price%20name
+
+By listing tags 
+
+?fields=tags 
+
+To choose only some fields:
+
+?fields=price- _id
+
+To paginate results you can use
+
+?skip=1&limit2&fields=price
+
+## Script
+
+mongoimport
+
