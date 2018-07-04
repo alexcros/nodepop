@@ -2,7 +2,7 @@
 
 const mongoose = require('mongoose');
 
-//define schema : all the  typs here mongoosejs.com/docs/schematypes.html DIA 5 parte 1 ; 1:46:00
+// define schema
 const adSchema = mongoose.Schema({
     name: String,
     sale: Boolean,
