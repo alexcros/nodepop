@@ -33,6 +33,17 @@ To start the app in dev mode use:
 ```
 ## API Documentation
 
+### Authentication
+
+To obtain a token make a POST to: /apiv1/users/login with email & password
+
+Use that token in:
+- header: 'x-access-token'
+- body: token
+- query string: token
+
+### Use JWT in every call
+
 http://localhost:3000/apiv1/ads
 
 Filter by name:

@@ -2,7 +2,7 @@
 
 const mongoose = require('mongoose');
 
-//define schema : all the  typs here mongoosejs.com/docs/schematypes.html DIA 5 parte 1 ; 1:46:00
+// define schema
 const adSchema = mongoose.Schema({
     name: String,
     sale: Boolean,
@@ -22,7 +22,7 @@ adSchema.statics.list = function(filter, skip, limit, fields, sort) {
     query.skip(skip);
     query.limit(limit);    
 
-    // sort by field
+    // db sort is executed before the pagination
     query.sort(sort);
 
     // execute query and return promise
@@ -32,4 +32,4 @@ adSchema.statics.list = function(filter, skip, limit, fields, sort) {
 // create model
 const Ad = mongoose.model('Ad', adSchema);
 
-module.exports = Ad; // mongoose no lo necesita
+module.exports = Ad;
