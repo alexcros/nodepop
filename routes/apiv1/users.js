@@ -7,6 +7,55 @@ const jwt = require('jsonwebtoken');
 
 const localConfig = require('../../localConfig.js');
 
+/**
+ * POST / 
+ * Register user
+ */
+
+router.post('/register', async (req, res, next) => {
+    var signUpData = {
+        email: req.body.email,
+        name: req.body.name,
+        password: req.body.password,
+    }
+
+    User.create(signUpData, (err, user) => {
+        if (err) {
+            next(err);
+            return;
+        }
+        console.log('registrando el user:', user);
+        res.json({ success: true, user })
+    });
+
+    // search users on db
+    //const user = await User.findOne({ email: email }).exec();
+
+    // check duplicated useR?
+    // if (!user) {
+    //     res.json({ success: true, message: 'invalid user' });
+    //     return;
+    // }
+
+    // create JWT
+    // jwt.sign({ user_id: user._id }, localConfig.jwt.secret, {
+    //     expiresIn: localConfig.jwt.expiresIn
+    // }, (err, token) => {
+    //     if (err) {
+    //         next(err);
+    //         return;
+    //     }
+    //     // answer client with JWT
+    //     res.json({ success: true, token })
+    // });
+
+});
+
+/**
+ * POST / 
+ * Login user
+ */
+
 router.post('/login', async (req, res, next) => {
     try {
         // collect credentials

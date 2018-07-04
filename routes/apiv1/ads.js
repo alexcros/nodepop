@@ -16,7 +16,8 @@ router.get('/', jwtAuth(), async (req, res, next) => {
         console.log('Authenticated user is:', req.user_id);
 
         // filters
-        const name = req.query.name;
+        //const name = req.query.name;
+        const tag = req.query.tag;
         const sale = req.query.sale;
         const fields = req.query.fields;
 
@@ -29,9 +30,9 @@ router.get('/', jwtAuth(), async (req, res, next) => {
 
         const filter = {};
 
-        if (name) {
-            filter.name = name;
-        }
+         if (tag) {
+             filter.tag = tag;
+         }
 
         if (sale) {
             filter.sale = sale;

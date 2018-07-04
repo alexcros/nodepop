@@ -27,7 +27,7 @@ if (cluster.isMaster) {
   const numCPUs = require('os').cpus().length;
 
   cluster.on('listening', (worker, address) => {
-    console.log('Worker', worker.id, 'con pid', worker.process.pid, 'starting on port', address.port);
+    console.log('Worker', worker.id, 'pid', worker.process.pid, 'starting on port', address.port);
   })
 
   cluster.on('exit' ,(worker, code, signal) =>  {
