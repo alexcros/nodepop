@@ -3,13 +3,18 @@ const router = express.Router();
 
 const Ad = require('../../models/Ad');
 
+const jwtAuth = require('../../lib/jwtAuth');
+
 /**
  * GET / 
  * Retrieve a list of advertisements
  */
 
-router.get('/', async (req, res, next) => {
+router.get('/', jwtAuth(), async (req, res, next) => {
     try {
+        // log user
+        console.log('Authenticated user is:', req.user_id);
+
         // filters
         const name = req.query.name;
         const sale = req.query.sale;

@@ -1,19 +1,17 @@
 'use strict';
 
 const express = require('express');
-const jwt = require('jsonwebtoken');
 const router = express.Router();
+const User = require('../../models/User');
+const jwt = require('jsonwebtoken');
+
 const localConfig = require('../../localConfig.js');
 
 router.post('/login', async (req, res, next) => {
-
     try {
         // collect credentials
         const email = req.body.email;
         const password = req.body.password;
-
-        // add user model
-        const User = require('../../models/User');
 
         // search users on db
         const user = await User.findOne({ email: email }).exec();
