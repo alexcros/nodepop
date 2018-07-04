@@ -1,12 +1,12 @@
 'use strict';
 
 const express = require('express');
-//const jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
 const router = express.Router();
-//const localConfig = require('../../localConfig.js');
+const localConfig = require('../../localConfig.js');
 
 router.post('/login', async (req, res, next) => {
-    
+
     try {
         // collect credentials
         const email = req.body.email;
@@ -20,13 +20,13 @@ router.post('/login', async (req, res, next) => {
 
         // check user
         if (!user) {
-            res.json({ success: true, message: 'invalid user'});
+            res.json({ success: true, message: 'invalid user' });
             return;
         }
 
         // verify password
         if (password !== user.password) {
-            res.json({ success: true, message: 'invalid credentials'});
+            res.json({ success: true, message: 'invalid password' });
             return;
         }
 
@@ -39,20 +39,14 @@ router.post('/login', async (req, res, next) => {
                 return;
             }
 
-            //res.json({ success: true, token: token })
             res.json({ success: true, token })
         });
 
         // answer to client with JWT
 
-
-
-
     } catch (error) {
         next(err);
     }
 });
-
-//const basicAuth = require('../../lib/basicAuth'); 
 
 module.exports = router;
