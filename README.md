@@ -42,7 +42,7 @@ Use that token in:
 - body: token
 - query string: token
 
-### Use
+### Use JWT in every call
 
 http://localhost:3000/apiv1/ads
 
