@@ -7,11 +7,16 @@ const adSchema = mongoose.Schema({
     name: String,
     sale: Boolean,
     price: Number,
-    photo: String
+    photo: String,
+    tags: { type: [ { type: String, enum: ['work', 'lifestyle', 'motor', 'mobile'] } ] }
 });
 
-// model static method
-adSchema.statics.list = function(filter, skip, limit, fields, sort) {
+/**
+ * model static methods
+ */
+
+// filter list
+adSchema.statics.list = function (filter, skip, limit, fields, sort, tags) {
 
     //TODO: case insensitive
     // create query with desired filters
@@ -20,14 +25,20 @@ adSchema.statics.list = function(filter, skip, limit, fields, sort) {
 
     // add pagination
     query.skip(skip);
-    query.limit(limit);    
+    query.limit(limit);
 
     // db sort is executed before the pagination
     query.sort(sort);
 
     // execute query and return promise
-    return query.exec();
+    return query.exec(tags);
 }
+
+// filter by tag
+adSchema.statics.tagList = (tags) => {
+    const query = Ad.distinct('tags');
+    query.exec(tags);
+};
 
 // create model
 const Ad = mongoose.model('Ad', adSchema);
