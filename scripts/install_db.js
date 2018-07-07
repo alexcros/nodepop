@@ -75,4 +75,6 @@ mongoClient.connect(url, function(err, db) {
 
     });
 
+    db.collection('users').createIndexx( { email: 1 });
+
 });
