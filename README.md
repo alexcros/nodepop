@@ -46,6 +46,22 @@ Use that token in:
 
 http://localhost:3000/apiv1/ads
 
+Filter by price:
+
+?price=50
+
+Filter by price between 10-50
+
+?price=10-50 
+
+Filter by price greater or equal than 10
+
+?price=10-
+
+Filter by price lower or equal than 50
+
+?price=-50
+
 Filter by name:
 
 ?name=Bike
