@@ -28,6 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/apiv1/ads', require('./routes/apiv1/ads'));
 app.use('/apiv1/users', require('./routes/apiv1/users'));
+app.use('/apiv1/tags', require('./routes/apiv1/tags'));
 
 /**
  * Application web routes
@@ -35,7 +36,7 @@ app.use('/apiv1/users', require('./routes/apiv1/users'));
  */
 
 app.use('/', require('./routes/index'));
-app.use('/users', require('./routes/users'));
+//app.use('/users', require('./routes/users'));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

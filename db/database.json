@@ -1,0 +1,52 @@
+{
+    "ads": [
+        {
+            "name": "Bike",
+            "sale": true,
+            "price": 230.15,
+            "photo": "images/anuncios/bici.jpg",
+            "tags": [
+                "lifestyle",
+                "motor"
+            ]
+        },
+        {
+            "name": "iPhone 3GS",
+            "sale": false,
+            "price": 50.0,
+            "photo": "images/anuncios/iphone.png",
+            "tags": [
+                "lifestyle",
+                "mobile"
+            ]
+        },
+        {
+            "name": "Samsung Galaxy S2",
+            "sale": true,
+            "price": 40.0,
+            "photo": "images/anuncios/galaxy.jpg",
+            "tags": [
+                "lifestyle",
+                "mobile"
+            ]
+        }
+    ],
+    "users": [
+        {
+            "email": "admin@example.com",
+            "name": "",
+            "password": "1234"
+        },
+        {
+            "email": "alexcros@example.com",
+            "name": "Alex",
+            "password": "1234"
+        }
+    ],
+    "tags": [
+        "work",
+        "lifestyle",
+        "motor",
+        "mobile"
+    ]
+}

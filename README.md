@@ -60,7 +60,7 @@ Filter by fields:
 
 By listing tags 
 
-?fields=tags 
+?fields=tags
 
 To choose only some fields:
 

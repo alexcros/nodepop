@@ -4,6 +4,9 @@ const express = require('express');
 const router = express.Router();
 const User = require('../../models/User');
 const jwt = require('jsonwebtoken');
+const crypto = require('crypto');
+const secret = 'abcdefg';
+
 
 const localConfig = require('../../localConfig.js');
 
@@ -13,10 +16,11 @@ const localConfig = require('../../localConfig.js');
  */
 
 router.post('/register', async (req, res, next) => {
+    const hash = crypto.createHash('sha256').update(req.body.password).digest('base64');
     var signUpData = {
         email: req.body.email,
         name: req.body.name,
-        password: req.body.password,
+        password: hash,
     }
 
     User.create(signUpData, (err, user) => {
@@ -58,9 +62,11 @@ router.post('/register', async (req, res, next) => {
 
 router.post('/login', async (req, res, next) => {
     try {
+        const hash = crypto.createHash('sha256').update(req.body.password).digest('base64');
+
         // collect credentials
         const email = req.body.email;
-        const password = req.body.password;
+        const password = hash;
 
         // search users on db
         const user = await User.findOne({ email: email }).exec();
