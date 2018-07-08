@@ -56,12 +56,13 @@ router.get('/', jwtAuth(), async (req, res, next) => {
 
         if (name) {
             // filter by starting letter
-            filter.name = new RegExp('^' + req.query.name, "i");
+            filter.name = new RegExp('^' + req.query.name, 'i');
         }
 
         const ads = await Ad.list(filter, skip, limit, fields, sort);
         res.json({ success: true, result: ads });
-    } catch (err) {
+    }
+ catch (err) {
         next(err);
     }
 });
