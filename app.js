@@ -1,25 +1,19 @@
 var createError = require('http-errors');
-var express = require('express'),
-i18n = require('i18n');
+var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var app = express();
 
-i18n.configure({
-  directory: __dirname + '/lib/locales',
-  //defaultLocale: 'en'
-});
-
-console.log(i18n.__('TEST'));
+// locale
+var i18n = require('./lib/i18n');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.engine('html', require('ejs').__express);
-app.use(i18n.init);
-
+app.use(i18n);
 
 // Connect Mongoose models
 require('./lib/connectMongoose');
