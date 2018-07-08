@@ -110,5 +110,22 @@ To paginate results you can use
 
 ## Script
 
-mongoimport
+## ESLint
 
+install in dev
+
+```shell
+npm install eslint --save-dev
+```
+
+configure ESLint
+
+```shell
+./node_modules/.bin/eslint --init
+```
+
+start checking
+
+```shell
+./node_modules/.bin/eslint ${workspaceFolder}/nodepop
+```
