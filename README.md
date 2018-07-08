@@ -1,5 +1,26 @@
 ## nodepop
 
+## Init database
+
+```shell
+    npm run installDB
+
+```
+
+## Start in dev mode
+
+```shell
+    npm dev start
+
+```
+
+## Start cluster
+
+```shell
+    npm cluster start
+
+```
+
 ## run mongoDB
 
 This application uses mongoDB
@@ -8,6 +29,7 @@ To run:
 
 ```shell
 ./bin/mongod --dbpath ./data/db
+
 ```
 
 ## run mongoose

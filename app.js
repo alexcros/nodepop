@@ -1,15 +1,25 @@
 var createError = require('http-errors');
-var express = require('express');
+var express = require('express'),
+i18n = require('i18n');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var app = express();
 
+i18n.configure({
+  directory: __dirname + '/lib/locales',
+  //defaultLocale: 'en'
+});
+
+console.log(i18n.__('TEST'));
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'html');
+app.set('view engine', 'ejs');
 app.engine('html', require('ejs').__express);
+app.use(i18n.init);
+
 
 // Connect Mongoose models
 require('./lib/connectMongoose');
@@ -36,7 +46,6 @@ app.use('/apiv1/tags', require('./routes/apiv1/tags'));
  */
 
 app.use('/', require('./routes/index'));
-//app.use('/users', require('./routes/users'));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -45,6 +54,7 @@ app.use(function (req, res, next) {
 
 // error handler
 app.use(function (err, req, res, next) {
+
   // validation error
   if (err.array) {
     err.status = 422;
