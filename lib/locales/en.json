@@ -1,0 +1,7 @@
+{
+    "HELLO": "Hello world",
+	"USER_INVALID_PASSWORD": "invalid password",
+	"USER_NOT_FOUND": "user not found",
+    "USER_CREATED": "user created",
+    "WELCOME": "Welcome to"
+}
