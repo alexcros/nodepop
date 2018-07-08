@@ -16,7 +16,8 @@ router.get('/', async (req, res, next) => {
 
         const tags = await Tag.find();
         res.json({ success: true, result: tags });
-    } catch (err) {
+    }
+ catch (err) {
         next(err);
     }
 });

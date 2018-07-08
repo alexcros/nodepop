@@ -7,17 +7,10 @@
 
 ```
 
-## Start in dev mode
-
-```shell
-    npm dev start
-
-```
-
 ## Start cluster
 
 ```shell
-    npm cluster start
+    npm run cluster
 
 ```
 
@@ -31,14 +24,6 @@ To run:
 ./bin/mongod --dbpath ./data/db
 
 ```
-
-## run mongoose
-
-
-
-## cross-env
-
-Installed en dev environment
 
 ## URL
 
@@ -55,6 +40,10 @@ To start the app in dev mode use:
 ```
 ## API Documentation
 
+### Sign up
+
+To sign up, make a POST to: /api/register/ with email, user and password
+
 ### Authentication
 
 To obtain a token make a POST to: /apiv1/users/login with email & password
@@ -64,9 +53,11 @@ Use that token in:
 - body: token
 - query string: token
 
-### Use JWT in every call
+### GET advertisements
 
-http://localhost:3000/apiv1/ads
+To get all the advertisements make a GET to: /apiv1/ads with a valid JWT
+
+http://localhost:3000/apiv1/ads&token=jwt_valid_token
 
 Filter by price:
 
@@ -100,7 +91,7 @@ By listing tags
 
 ?fields=tags
 
-To choose only some fields:
+To filter info:
 
 ?fields=price- _id
 
@@ -108,7 +99,22 @@ To paginate results you can use
 
 ?skip=1&limit2&fields=price
 
-## Script
+## ESLint
 
-mongoimport
+Local installation and usage:
 
+```shell
+npm install eslint --save-dev
+```
+
+setup configuration file:
+
+```shell
+./node_modules/.bin/eslint --init
+```
+
+run on project:
+
+```shell
+./node_modules/.bin/eslint ${workspaceFolder}/nodepop
+```

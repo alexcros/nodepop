@@ -1,0 +1,23 @@
+
+{
+    "env": {
+        "node": 1,
+        "browser": 1
+      },
+      "globals": {
+        "exampleGlobalVariable": true
+      },
+      "rules": {
+        "quotes": [2, "single", "avoid-escape"],
+        "eqeqeq": 0,
+        "brace-style": [2, "stroustrup"],
+        "eol-last": 0,
+        "no-nested-ternary": 1,
+        "space-before-blocks": [1, "always"]
+      },
+      "plugins": [
+      ],
+    "parserOptions": {
+        "ecmaVersion": 8
+      }
+}
