@@ -18,7 +18,6 @@ const adSchema = mongoose.Schema({
 // filter list
 adSchema.statics.list = function (filter, skip, limit, fields, sort, tags) {
 
-    //TODO: case insensitive
     // create query with desired filters
     const query = Ad.find(filter);
     query.select(fields);
@@ -38,6 +37,13 @@ adSchema.statics.list = function (filter, skip, limit, fields, sort, tags) {
 adSchema.statics.tagList = (tags) => {
     const query = Ad.distinct('tags');
     query.exec(tags);
+};
+
+/**
+ * List of permitted tags
+ */
+adSchema.statics.allowedTags = function () {
+    return ['work', 'lifestyle', 'motor', 'mobile'];
 };
 
 // create model

@@ -67,4 +67,8 @@ router.get('/', jwtAuth(), async (req, res, next) => {
     }
 });
 
+router.get('/tags', function (req, res) {
+    res.json({ success: true, allowedTags: Ad.allowedTags() });
+});
+
 module.exports = router;
