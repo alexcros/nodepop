@@ -3,5 +3,6 @@
 	"USER_INVALID_PASSWORD": "password invalido",
 	"USER_NOT_FOUND": "usuario no encontrado",
 	"USER_CREATED": "usuario creado",
-	"WELCOME": "Bienvenido a"
+	"WELCOME": "Bienvenido a",
+	"TEST": "probando"
 }

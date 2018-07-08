@@ -12,7 +12,7 @@ i18n.configure({
   //defaultLocale: 'en'
 });
 
-console.log(i18n.__('HELLO'));
+console.log(i18n.__('TEST'));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
