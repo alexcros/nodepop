@@ -2,6 +2,8 @@
 
 const mongoose = require('mongoose');
 
+const fs = require('fs');
+
 // define schema
 const adSchema = mongoose.Schema({
   name: { type: String, index: true },
@@ -44,6 +46,32 @@ adSchema.statics.tagList = (tags) => {
  */
 adSchema.statics.allowedTags = function () {
     return ['work', 'lifestyle', 'motor', 'mobile'];
+/**
+ * load json ads
+ */
+adSchema.statics.loadJson = async function (file) {
+  // Use a callback function with async/await
+  const data = await new Promise((resolve, reject) => {
+    // Encodings: https://nodejs.org/api/buffer.html
+    fs.readFile(file, { encoding: 'utf8' }, (err, data) => {
+      return err ? reject(err) : resolve(data);
+    });
+  });
+
+
+  if (!data) {
+    throw new Error(file + ' is empty!');
+  }
+
+  const ads = JSON.parse(data).ads;
+  const numAds = ads.length;
+
+  for (var i = 0; i < ads.length; i++) {
+    await (new Ad(ads[i])).save();
+  }
+
+  return numAds;
+
 };
 
 // create model
