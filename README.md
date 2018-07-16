@@ -1,4 +1,4 @@
-## nodepop
+# nodepop
 
 It´s an **API** that works in **iOS** and **Android**.
 
@@ -23,6 +23,16 @@ It´s an **API** that works in **iOS** and **Android**.
 
 ```
 
+## Development
+
+To start the app in dev mode use:
+
+```shell
+
+    npm run dev
+
+```
+
 ## mongoDB
 
 This application uses mongoDB
@@ -38,16 +48,6 @@ To run:
 
 localhost:3000
 
-## Development
-
-To start the app in dev mode use:
-
-```shell
-
-    npm run dev
-
-```
-
 ## Language EN/ES
 All requests that return error messages are localized to english, if you want to 
 change language make the request with the header accept-language set to other language, 
@@ -57,7 +57,7 @@ i.e. Accept-Language: es
 
 ### POST /users/register
 
-**Input Body**: { name, email, password}
+**Input Body**: { name, email, password }
 
 **Result:** 
 
@@ -86,9 +86,7 @@ Use that token in:
 
 ### GET /ads
 
-To get all the advertisements make a GET to: /apiv1/ads with a valid JWT
-
-http://localhost:3000/apiv1/ads&token=jwt_valid_token
+To get all the advertisements make a GET call to: /apiv1/ads with a valid JWT e.j http://localhost:3000/apiv1/ads&token=jwt_valid_token
 
 **Input Query**: 
 
@@ -99,7 +97,7 @@ tag: {string} tag name to filter
 sale: {bool} filter by venta or not, example sale=true
 price: {range} filter by price range, examples 10-50, -50, 10-, 50   
 name: {string} filter names beginning with the string  
-fields:{string} filter by field, examples ?fields=price- _id, ?fields=price%20name
+fields:{string} filter by field, examples ?fields=price- _id, or ?fields=price%20name
 
 Input query example: 
 ?tag=mobile&sale=false&name=ip&price=50-&skip=0&limit=2&sort=price&token=eyJ0eXAiO...
@@ -107,7 +105,7 @@ Input query example:
 **Result:** 
 
     {
-      "ok": true,
+      "success": true,
       "result": {
         "rows": [
           {
@@ -123,7 +121,6 @@ Input query example:
             ]
           }
         ],
-        "total": 1
       }
     }
 
@@ -141,24 +138,12 @@ Return the list of available tags for the resource ads
             "motor",
             "mobile"
         ]
-    }∫
+    }
 
-## ESLint
-
-Local installation and usage:
-
-```shell
-npm install eslint --save-dev
-```
-
-setup configuration file:
-
-```shell
-./node_modules/.bin/eslint --init
-```
+## ESLint (dev)
 
 run on project:
 
 ```shell
-./node_modules/.bin/eslint ${workspaceFolder}/nodepop
+    npm run eslint
 ```
