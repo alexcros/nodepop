@@ -1,11 +1,9 @@
 'use strict';
 
-// load modules and database.json
-const mongoClient = require('mongoose');
-var url = 'mongodb://localhost:27017/nodepop';
-var json = require('../db/database.json');
 
 mongoClient.connect(url, function(err, db) {
+// database connection
+const db = require('../lib/connectMongoose');
 
     if (err) {
         return console.log('Error: ', err);
