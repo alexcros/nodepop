@@ -6,6 +6,7 @@
     "start": "node ./bin/www",
     "cluster": "nodemon ./bin/cluster",
     "dev": "cross-env DEBUG=nodepop:* nodemon ./bin/www",
+    "lint": "eslint --ignore-pattern dist ./; exit 0",
     "installDB": "node ./scripts/install_db.js"
   },
   "dependencies": {
