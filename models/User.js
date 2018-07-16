@@ -2,12 +2,12 @@
 
 const mongoose = require('mongoose');
 
- // define schema
- const userSchema = mongoose.Schema({
-     email: { type: String, index:true, unique: true },
-     password: String,
-     name: String
- });
+// define schema
+const userSchema = mongoose.Schema({
+    email: { type: String, index: true, unique: true },
+    password: String,
+    name: { type: String, index: true }
+});
 
 // create model
 const User = mongoose.model('User', userSchema);
