@@ -4,11 +4,11 @@ const mongoose = require('mongoose');
 
 // define schema
 const adSchema = mongoose.Schema({
-    name: String,
-    sale: Boolean,
-    price: Number,
-    photo: String,
-    tags: { type: [ { type: String, enum: ['work', 'lifestyle', 'motor', 'mobile'] } ] }
+    name: { type: String, index: true },
+    sale: { type: Boolean, index: true },
+    price: { type: Number, index: true },
+    photo: { type: String, index: true },
+    tags: { type: [ { type: String, index: true, enum: ['work', 'lifestyle', 'motor', 'mobile'] } ] }
 });
 
 /**
