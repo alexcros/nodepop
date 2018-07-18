@@ -1,61 +1,88 @@
 # nodepop
 
-It´s an **API** that works in **iOS** and **Android**.
+It´s an **API** that works in **iOS** and **Android**
 
-## Init database
+## Deploy
 
-```shell
-    npm run installDB
-
-```
-
-## Install dependencies
+### Install dependencies
 
 ```shell
     npm install
-
 ```
 
-## Start cluster
+### Init database
+
+```shell
+    npm run installDB
+```
+
+### Start:
+
+Single instance
+
+```shell
+    npm start
+```
+
+Cluster mode
 
 ```shell
     npm run cluster
-
 ```
 
-## Development
-
-To start the app in dev mode use:
+Develpment mode
 
 ```shell
-
     npm run dev
-
 ```
 
-## mongoDB
-
-This application uses mongoDB
-
-To run:
+Start a single instance in debug mode
 
 ```shell
-./bin/mongod --dbpath ./data/db
-
+    npm run debug
 ```
 
-## URL
+## ESLint
 
-localhost:3000
+Javascript linting utility
+
+```shell
+    npm run eslint
+```
+
+## API v1 info 
+
+### Base Path
+
+The API can be used with the path: 
+[API V1](/apiv1/ads)
+
+
+### Security
+
+The API uses JSON Web Token to handle users. https://jwt.io/
 
 ## Language EN/ES
 All requests that return error messages are localized to english, if you want to 
 change language make the request with the header accept-language set to other language, 
 i.e. Accept-Language: es 
 
-## API Documentation
+### Error example
+
+    {
+      "success": false,
+      "error": {
+        "code": 401,
+        "message": "user not found"
+      }
+    }
+
+
+## API endpoints
 
 ### POST /users/register
+
+Call /users/register to create a user.  
 
 **Input Body**: { name, email, password }
 
@@ -68,6 +95,8 @@ i.e. Accept-Language: es
 
 ### POST /users/login
 
+Call /users/login to obtain JWT token.
+
 **Input Body**: { email, password }
 
 **Result:** 
@@ -76,8 +105,6 @@ i.e. Accept-Language: es
       "success": true, 
       "token": "..."
     }
-
-After login, you will obtain a token (JWT)
 
 Use that token in:
 - Header: x-access-token: eyJ0eXAiO...
@@ -94,7 +121,7 @@ skip: {int} skip records
 limit: {int} limit to records  
 sort: {string} field name to sort by   
 tag: {string} tag name to filter 
-sale: {bool} filter by venta or not, example sale=true
+sale: {bool} filter by sale or not, example sale=true
 price: {range} filter by price range, examples 10-50, -50, 10-, 50   
 name: {string} filter names beginning with the string  
 fields:{string} filter by field, examples ?fields=price- _id, or ?fields=price%20name
@@ -139,11 +166,3 @@ Return the list of available tags for the resource ads
             "mobile"
         ]
     }
-
-## ESLint (dev)
-
-run on project:
-
-```shell
-    npm run eslint
-```

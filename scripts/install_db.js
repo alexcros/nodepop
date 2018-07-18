@@ -89,5 +89,6 @@ function initUsers(callback) {
 
 function endScript() {
     console.log('script load completed!')
+    return process.exit(0);
 }
 
