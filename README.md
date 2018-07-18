@@ -10,6 +10,10 @@ It´s an **API** that works in **iOS** and **Android**
     npm install
 ```
 
+### Database config
+
+Set database config in localConfig.js
+
 ### Init database
 
 ```shell
