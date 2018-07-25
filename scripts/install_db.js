@@ -19,6 +19,7 @@ db.once('open', function () {
         output: process.stdout
     });
 
+    //TODO: on first install there isn't a dabatase, improve this
     rl.question('Are you sure you want to empty DB? (yes/NO)', function (answer) {
         rl.close();
         if (answer.toLowerCase() === 'yes') {

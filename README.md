@@ -1,3 +1,11 @@
+## URL
+
+Bootstrap template
+https://18.209.82.41/
+
+Nodepop
+https://alexcros.es
+
 # nodepop
 
 It´s an **API** that works in **iOS** and **Android**
@@ -15,6 +23,8 @@ It´s an **API** that works in **iOS** and **Android**
 Set database config in localConfig.js
 
 ### Init database
+
+To init database, first start a mongo service
 
 ```shell
     npm run installDB
