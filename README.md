@@ -1,12 +1,12 @@
+# nodepop
+
 ## URL
 
 Bootstrap template
-https://18.209.82.41/
+http://18.209.82.41/
 
 Nodepop
 https://alexcros.es
-
-# nodepop
 
 It´s an **API** that works in **iOS** and **Android**
 
@@ -127,7 +127,7 @@ Use that token in:
 
 ### GET /ads
 
-To get all the advertisements make a GET call to: /apiv1/ads with a valid JWT e.j http://localhost:3000/apiv1/ads&token=jwt_valid_token
+To get all the advertisements make a GET call to: /apiv1/ads with a valid JWT e.j https://alexcros.es/apiv1/ads&token=jwt_valid_token
 
 **Input Query**: 
 
