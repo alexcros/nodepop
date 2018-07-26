@@ -15,14 +15,12 @@ Static files
 https://alexcros.es/images/bici.jpg
 https://alexcros.es/stylesheets/style.css
 
-
-
 ## Deploy
 
 ### Install dependencies
 
 ```shell
-    npm install
+   $ npm install
 ```
 
 ### Database config
@@ -34,7 +32,7 @@ Set database config in localConfig.js
 To init database, first start a mongo service
 
 ```shell
-    npm run installDB
+    $ npm run installDB
 ```
 
 ### Start:
@@ -42,25 +40,25 @@ To init database, first start a mongo service
 Single instance
 
 ```shell
-    npm start
+    $ npm start
 ```
 
 Cluster mode
 
 ```shell
-    npm run cluster
+    $ npm run cluster
 ```
 
 Develpment mode
 
 ```shell
-    npm run dev
+    $ npm run dev
 ```
 
 Start a single instance in debug mode
 
 ```shell
-    npm run debug
+    $ npm run debug
 ```
 
 ## ESLint
@@ -68,7 +66,7 @@ Start a single instance in debug mode
 Javascript linting utility
 
 ```shell
-    npm run eslint
+    $ npm run eslint
 ```
 
 ## API v1 info 
