@@ -1,4 +1,6 @@
-# nodepop
+# Nodepop
+
+It´s an **API** that works in **iOS** and **Android**
 
 ## URL
 
@@ -8,7 +10,12 @@ http://18.209.82.41/
 Nodepop
 https://alexcros.es
 
-It´s an **API** that works in **iOS** and **Android**
+Static files
+
+https://alexcros.es/images/bici.jpg
+https://alexcros.es/stylesheets/style.css
+
+
 
 ## Deploy
 
