@@ -141,7 +141,7 @@ limit: {int} limit to records
 sort: {string} field name to sort by   
 tag: {string} tag name to filter 
 sale: {bool} filter by sale or not, example sale=true
-price: {range} filter by price range, examples 10-50, -50, 10-, 50   
+price: {range} filter by price range, examples: 10-50, -50, 10-, 50   
 name: {string} filter names beginning with the string  
 fields:{string} filter by field, examples ?fields=price- _id, or ?fields=price%20name
 

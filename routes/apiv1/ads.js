@@ -20,30 +20,33 @@ router.get('/', jwtAuth(), async (req, res, next) => {
         const tag = req.query.tag;
         const sale = req.query.sale;
         const fields = req.query.fields;
-        const price = req.query.price;
 
         // pagination
-        const skip = parseInt(req.query.skip);
-        const limit = parseInt(req.query.limit);
+        const skip = parseInt(req.query.skip) || 0;
+        const limit = parseInt(req.query.limit) || 10;
 
         // sort
         const sort = req.query.sort;
 
         const filter = {};
 
-        switch(price) {
-            case '10-50':
-            filter.price = { '$gte': '10','$lte': '50'};
-            break; 
-            case '-50':
-            filter.price = {'$lt': '50'};
-            break;
-            case '10-': 
-            filter.price = { '$gt': '10'};
-            break;
-            case '50': 
-            filter.price = '50';
-            break;
+        if (req.query.price) {
+            const priceRange = req.query.price.split('-');
+            
+            if (req.query.price.indexOf('-') == -1) {
+                filter.price = req.query.price;
+            } else {
+                // price has range
+                if ((priceRange[0] && priceRange[1])) {
+                    filter.price = { '$gte': priceRange[0].toString(), '$lte': priceRange[1].toString() };
+                }
+                else if (priceRange[0]) {
+                    filter.price = { '$gte': priceRange[0].toString() };
+                }
+                else if (priceRange[1]) {
+                    filter.price = { '$lte': priceRange[1].toString() };
+                }
+            }
         }
 
         if (tag) {
@@ -62,7 +65,7 @@ router.get('/', jwtAuth(), async (req, res, next) => {
         const ads = await Ad.list(filter, skip, limit, fields, sort);
         res.json({ success: true, result: ads });
     }
- catch (err) {
+    catch (err) {
         next(err);
     }
 });
